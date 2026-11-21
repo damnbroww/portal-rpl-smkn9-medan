@@ -1,0 +1,326 @@
+/* RESET & GAYA DASAR */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+.page-wrapper {
+    display: grid;
+    grid-template-columns: 220px 1fr 220px;
+    grid-template-areas:
+        "header header header"
+        "sidebar main promo"
+        "footer footer footer";
+    gap: 16px;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 16px;
+    min-height: 100vh;
+}
+
+.header {
+    grid-area: header;
+    background: #1b365d;
+    color: #fff;
+    padding: 16px 24px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #e2e8f0;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.hamburger-btn {
+    display: none;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 1.2rem;
+}
+
+.sidebar-kiri {
+    grid-area: sidebar;
+    background: #0d9488;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.sidebar-kiri ul {
+    list-style: none;
+    margin-top: 12px;
+    line-height: 2;
+}
+
+.konten-utama {
+    grid-area: main;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.card {
+    background: #374151;
+    border: 1px solid #6b7280;
+    padding: 12px;
+    border-radius: 14px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    transition: 0.3s;
+}
+
+.widget-promo {
+    grid-area: promo;
+    background: #f59e0b;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.promo-box {
+    background: rgba(0,0,0,0.15);
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+.footer {
+    grid-area: footer;
+    background: #334155;
+    color: #f8fafc;
+    text-align: center;
+    padding: 14px;
+    border-radius: 10px;
+}
+
+/* BREAKPOINT TABLET */
+@media screen and (min-width: 601px) and (max-width: 1023px) {
+    .page-wrapper {
+        grid-template-columns: 190px 1fr;
+        grid-template-areas:
+            "header header"
+            "sidebar main"
+            "footer footer";
+    }
+
+    .widget-promo {
+        display: none;
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* BREAKPOINT SMARTPHONE */
+@media screen and (max-width: 600px) {
+    .page-wrapper {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "main"
+            "footer";
+        padding: 10px;
+    }
+
+    .nav-links,
+    .sidebar-kiri,
+    .widget-promo {
+        display: none;
+    }
+
+    .hamburger-btn {
+        display: block;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+  .card h4 {
+    color: white;
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.card p {
+    color: #e5e7eb;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 5px 0;
+}
+}
+
+/* TANTANGAN 2: ORIENTATION BREAKPOINT */
+@media screen and (max-width: 850px) and (orientation: landscape) {
+    .header {
+        background: #0d9488;
+    }
+}
+
+
+/* TANTANGAN 3: SMART TV BREAKPOINT */
+@media screen and (min-width: 1440px) {
+    .page-wrapper {
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 24px;
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* MENU AKTIF */
+.nav-links.active {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: #1b365d;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.card p {
+    color: #e5e7eb !important;
+}
+
+.card h4 {
+    color: #ffffff !important;
+}
+
+/* CHATBOT */
+.chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+}
+
+#chatbotBtn {
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background: #2563eb;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.chatbox {
+    display: none;
+    position: absolute;
+    bottom: 75px;
+    right: 0;
+    width: 300px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.chat-header {
+    background: #1b365d;
+    color: white;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h3 {
+    margin: 0;
+}
+
+#closeChat {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.chat-body {
+    height: 220px;
+    padding: 12px;
+    overflow-y: auto;
+    color: #333;
+    font-size: 14px;
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px;
+    gap: 5px;
+    border-top: 1px solid #ddd;
+}
+
+.chat-input input {
+    min-width: 0;
+    flex: 1;
+    padding: 9px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+#sendBtn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 6px;
+}
